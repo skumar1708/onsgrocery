@@ -114,7 +114,6 @@ h1 {
     -webkit-animation:fade 3000ms infinite;
 }
 
-.bg{
-    background: red;
-    background:url(../img/vegies.png) no-repeat center top;
+div:last-child{
+    background:url(../img/vegies.png) no-repeat center top !important;
 }
