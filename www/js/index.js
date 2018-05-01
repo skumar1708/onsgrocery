@@ -50,32 +50,31 @@ var app = {
 };
 
 function launchStore(){
-    let = cordova.InAppBrowser.open('http://www.onsgrocery.com', '_blank','location=no,zoom=no,disallowoverscroll=yes,clearsessioncache=yes');
-}
-
-ref.addEventListener('loadstart', function(event) {
-    var options = { dimBackground: true };
-    SpinnerPlugin.activityStart("Loading...", options);
-});
-ref.addEventListener('loadstop', function(event) {
-    SpinnerPlugin.activityStop();
-});
-ref.addEventListener('exit', function(event) {
-                    swal({
-                                  title: '',
-                                  text: "Do you really want to exit?",
-                                  type: 'success',
-                                  showCancelButton: true,
-                                  confirmButtonColor: '#3085d6',
-                                  cancelButtonColor: '#d33',
-                                  confirmButtonText: 'Yes',
-                                  cancelButtonText: 'No',
-                                  confirmButtonClass: 'btn btn-success',
-                                  cancelButtonClass: 'btn btn-danger',
-                                  buttonsStyling: true
-                                }).then(function () {
-                                   navigator.app.exitApp();
-                                }, function (dismiss) {
-                                  openScreen('home');
-                                });
+    let ref = cordova.InAppBrowser.open('http://www.onsgrocery.com', '_blank','location=no,zoom=no,disallowoverscroll=yes,clearsessioncache=yes');
+    ref.addEventListener('loadstart', function(event) {
+        var options = { dimBackground: true };
+        SpinnerPlugin.activityStart("Loading...", options);
     });
+    ref.addEventListener('loadstop', function(event) {
+        SpinnerPlugin.activityStop();
+    });
+    ref.addEventListener('exit', function(event) {
+                        swal({
+                                    title: '',
+                                    text: "Do you really want to exit?",
+                                    type: 'success',
+                                    showCancelButton: true,
+                                    confirmButtonColor: '#3085d6',
+                                    cancelButtonColor: '#d33',
+                                    confirmButtonText: 'Yes',
+                                    cancelButtonText: 'No',
+                                    confirmButtonClass: 'btn btn-success',
+                                    cancelButtonClass: 'btn btn-danger',
+                                    buttonsStyling: true
+                                    }).then(function () {
+                                    navigator.app.exitApp();
+                                    }, function (dismiss) {
+                                    openScreen('home');
+                                    });
+    });
+}   
