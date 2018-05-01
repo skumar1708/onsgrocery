@@ -4,8 +4,8 @@
     <description>
         Online Grocery Store for  home delivery of fruits and vegetables, total fresh
     </description>
-    <author email="support@phonegap.com" href="http://phonegap.com">
-        PhoneGap Team
+    <author email="support@onsgrocery.com" href="http://www.onsgrocery.com">
+        ONS Team
     </author>
     <content src="index.html" />
     <preference name="DisallowOverscroll" value="true" />
