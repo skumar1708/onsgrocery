@@ -10,18 +10,9 @@
     <content src="index.html" />
     <preference name="DisallowOverscroll" value="true" />
     <preference name="android-minSdkVersion" value="14" />
-    <preference name="SplashScreenDelay" value="5000" />
+    <preference name="fullscreen" value="true" />
     <platform name="android">
         <icon src="www/res/icon/android/logo.png" />
-        <splash platform="android" qualifier="port-ldpi" src="res/screen/android/splash.png" />
-        <splash platform="android" qualifier="port-mdpi" src="res/screen/android/splash.png" />
-        <splash platform="android" qualifier="port-hdpi" src="res/screen/android/splash.png" />
-        <splash platform="android" qualifier="port-xhdpi" src="res/screen/android/splash.png" />
-        <splash platform="android" qualifier="land-ldpi" src="res/screen/android/splash.png" />
-        <splash platform="android" qualifier="land-mdpi" src="res/screen/android/splash.png" />
-        <splash platform="android" qualifier="land-hdpi" src="res/screen/android/splash.png" />
-        <splash platform="android" qualifier="land-xhdpi" src="res/screen/android/splash.png" />
-        <splash src="splash.png" />
     </platform>
     <access origin="*" />
     <allow-intent href="http://*/*" />

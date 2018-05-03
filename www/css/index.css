@@ -47,7 +47,7 @@ body {
 
 /* Portrait layout (default) */
 .app {
-    background:url(../img/logo.png) no-repeat center top; /* 170px x 200px */
+    background:url(../img/logo-mobile.png) no-repeat center top; /* 170px x 200px */
    
     height:50px;                   /* text area height */
     width:225px;                   /* text area width */
@@ -117,7 +117,13 @@ h1 {
     -webkit-animation:fade 3000ms infinite;
 }
 
-div:last-child>iframe{
+/* div:last-child>iframe{
     background:url(../img/vegies.png) no-repeat center top fixed !important;
     background-size:cover;
+} */
+
+.no-internet{
+    padding-top: 45%;
+    text-align: center;
+    font-size: larger;
 }

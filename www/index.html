@@ -11,7 +11,7 @@
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.9.1/sweetalert2.min.css">
     <link rel="stylesheet" type="text/css" href="css/index.css" />
-    <title>Hello World</title>
+    <title>ONS Grocery</title>
 </head>
 
 <body class="bg">
@@ -25,7 +25,29 @@
     <script type="text/javascript" src="cordova.js"></script>
     <script type="text/javascript" src="js/index.js"></script>
     <script type="text/javascript">
-        app.initialize();
+        if(navigator.onLine){
+                app.initialize();
+            }else{
+                let div = document.createElement('div');
+                let btn = document.createElement('button');
+                btn.innerHTML ="Retry";
+                btn.addEventListener('click',retry);
+
+                // var img = document.createElement('img');
+                // img.src = "/img/woops.png";
+                div.classList.add('no-internet');
+                div.innerHTML = "<p>You are offline, please check your internet conection and</p>"
+                //div.append(img);
+                div.append(btn)
+                document.body.append(div);
+            }
+            function retry(){
+                    if(navigator.onLine){
+                        let child = document.querySelector('.no-internet');
+                        document.body.removeChild(child);
+                         app.initialize();
+                      }
+            }
     </script>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.9.1/sweetalert2.min.js'></script>
 </body>
