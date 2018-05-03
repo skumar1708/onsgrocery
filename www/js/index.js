@@ -33,7 +33,6 @@ var app = {
     // The scope of 'this' is the event. In order to call the 'receivedEvent'
     // function, we must explicitly call 'app.receivedEvent(...);'
     onDeviceReady: function() {
-        launchStore();
         app.receivedEvent('deviceready');
     },
     // Update DOM on a Received Event
@@ -46,10 +45,12 @@ var app = {
         receivedElement.setAttribute('style', 'display:block;');
 
         console.log('Received Event: ' + id);
+        launchStore();
     }
 };
 
 function launchStore(){
+    console.log('if launching');
     let ref = cordova.InAppBrowser.open('http://www.onsgrocery.com', '_blank','location=no,zoom=no,disallowoverscroll=yes,clearsessioncache=yes');
     // ref.addEventListener('loadstart', function(event) {
     //     var options = { dimBackground: true };
