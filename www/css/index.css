@@ -52,10 +52,16 @@ body {
     height:50px;                   /* text area height */
     width:225px;                   /* text area width */
     text-align:center;
+    margin: auto;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
 }
 
 /* Landscape layout (with min-width) */
-@media screen and (min-aspect-ratio: 1/1) and (min-width:400px) {
+/* @media screen and (min-aspect-ratio: 1/1) and (min-width:400px) {
     .app {
         margin: auto;
         position: absolute;
@@ -64,7 +70,7 @@ body {
         right: 0;
         bottom: 0;
     }
-}
+} */
 
 h1 {
     font-size:24px;
