@@ -51,11 +51,16 @@ var app = {
 
 function launchStore(){
     let ref = cordova.InAppBrowser.open('http://www.onsgrocery.com', '_blank','location=no,zoom=no,disallowoverscroll=yes,clearsessioncache=yes,hidden=yes');
-    ref.addEventListener('loadstart', function(event) {
+    // ref.addEventListener('loadstart', function(event) {
        
-    });
+    // });
     ref.addEventListener('loadstop', function(event) {
-        iniDiv.style.display = "none";
+       // iniDiv.style.display = "none";
+        swal(
+            'Good job!',
+            'You clicked the button!',
+            'success'
+          );
         ref.show();
     });
     ref.addEventListener('exit', function(event) {
