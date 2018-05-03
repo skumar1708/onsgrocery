@@ -55,12 +55,7 @@ function launchStore(){
        
     // });
     ref.addEventListener('loadstop', function(event) {
-       // iniDiv.style.display = "none";
-        swal(
-            'Good job!',
-            'You clicked the button!',
-            'success'
-          );
+        iniDiv.style.display = "none";
         ref.show();
     });
     ref.addEventListener('exit', function(event) {
