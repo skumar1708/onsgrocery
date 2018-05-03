@@ -23,3 +23,11 @@
     text-align: center;
     font-size: larger;
 }
+.blink{
+    position: absolute;
+    margin: auto;
+    top: 104%;
+    left: 0;
+    bottom: 0;
+    right: 0;
+}
