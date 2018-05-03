@@ -1,0 +1,17 @@
+{
+  "name": "org.ongrocery.store",
+  "version": "1.0.0",
+  "displayName": "ONS Grocery",
+  "cordova": {
+    "platforms": [
+      "android"
+    ],
+    "plugins": {
+      "cordova-plugin-splashscreen": {}
+    }
+  },
+  "dependencies": {
+    "cordova-android": "~7.0.0",
+    "cordova-plugin-splashscreen": "^5.0.2"
+  }
+}
