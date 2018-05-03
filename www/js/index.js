@@ -74,7 +74,7 @@ function launchStore(){
                                     }).then(function () {
                                     navigator.app.exitApp();
                                     }, function (dismiss) {
-                                    openScreen('home');
+                                        launchStore('home');
                                     });
     });
 }   
