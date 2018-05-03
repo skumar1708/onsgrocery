@@ -114,6 +114,7 @@ h1 {
     -webkit-animation:fade 3000ms infinite;
 }
 
-div:last-child{
-    background:url(../img/vegies.png) no-repeat center top !important;
+div:last-child>iframe{
+    background:url(../img/vegies.png) no-repeat center top fixed !important;
+    background-size:cover;
 }
