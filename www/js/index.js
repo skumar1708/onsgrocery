@@ -54,7 +54,10 @@ function launchStore(){
 	if(navigator.onLine){
 		ref = cordova.InAppBrowser.open('http://www.onsgrocery.com/', '_blank','location=no,zoom=no,disallowoverscroll=yes,clearsessioncache=yes,hidden=yes');
 		ref.addEventListener('loadstart', function(event) {
-		  alert('load start!1');
+		  if(!navigator.onLine){
+			  alert('You are offline');
+			  return;
+		  }
 		});
 		ref.addEventListener('loadstop', function(event) {
 			//iniDiv.style.display = "none";
