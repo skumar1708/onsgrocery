@@ -34,6 +34,7 @@ var app = {
     // function, we must explicitly call 'app.receivedEvent(...);'
     onDeviceReady: function() {
         app.receivedEvent('deviceready');
+		let ref = null;
     },
     // Update DOM on a Received Event
     receivedEvent: function(id) {
@@ -50,31 +51,36 @@ var app = {
 };
 
 function launchStore(){
-    let ref = cordova.InAppBrowser.open('http://www.onsgrocery.com', '_blank','location=no,zoom=no,disallowoverscroll=yes,clearsessioncache=yes,hidden=yes');
-    // ref.addEventListener('loadstart', function(event) {
-       
-    // });
-    ref.addEventListener('loadstop', function(event) {
-        //iniDiv.style.display = "none";
-        ref.show();
-    });
-    ref.addEventListener('exit', function(event) {
-                        swal({
-                                    title: '',
-                                    text: "Do you really want to exit?",
-                                    type: 'success',
-                                    showCancelButton: true,
-                                    confirmButtonColor: '#3085d6',
-                                    cancelButtonColor: '#d33',
-                                    confirmButtonText: 'Yes',
-                                    cancelButtonText: 'No',
-                                    confirmButtonClass: 'btn btn-success',
-                                    cancelButtonClass: 'btn btn-danger',
-                                    buttonsStyling: true
-                                    }).then(function () {
-                                    navigator.app.exitApp();
-                                    }, function (dismiss) {
-                                        launchStore('home');
-                                    });
-    });
+	if(navigator.onLine){
+		ref = cordova.InAppBrowser.open('http://www.onsgrocery.com/', '_blank','location=no,zoom=no,disallowoverscroll=yes,clearsessioncache=yes,hidden=yes');
+		ref.addEventListener('loadstart', function(event) {
+		  alert('load start!1');
+		});
+		ref.addEventListener('loadstop', function(event) {
+			//iniDiv.style.display = "none";
+			ref.show();
+		});
+		ref.addEventListener('exit', function(event) {
+							swal({
+										title: '',
+										text: "Do you really want to exit?",
+										type: 'success',
+										showCancelButton: true,
+										confirmButtonColor: '#3085d6',
+										cancelButtonColor: '#d33',
+										confirmButtonText: 'Yes',
+										cancelButtonText: 'No',
+										confirmButtonClass: 'btn btn-success',
+										cancelButtonClass: 'btn btn-danger',
+										buttonsStyling: true
+										}).then(function () {
+										navigator.app.exitApp();
+										}, function (dismiss) {
+											launchStore('home');
+										});
+		});
+	}
+	else{
+		alert('No internet');
+	}
 }   
