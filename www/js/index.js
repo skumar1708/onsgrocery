@@ -34,7 +34,11 @@ var app = {
     // function, we must explicitly call 'app.receivedEvent(...);'
     onDeviceReady: function() {
         app.receivedEvent('deviceready');
+        document.addEventListener("offline", onOffline, false);
 		let ref = null;
+    },
+    onOffline:function(){
+        swal("You are offine!!");
     },
     // Update DOM on a Received Event
     receivedEvent: function(id) {
@@ -100,7 +104,7 @@ function launchStore(url){
 										}).then(function () {
 										navigator.app.exitApp();
 										}, function (dismiss) {
-											launchStore('home');
+											launchStore('http://www.onsgrocery.com/');
 										});
 		});
 }   
