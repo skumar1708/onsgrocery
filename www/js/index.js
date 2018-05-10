@@ -54,8 +54,10 @@ function launchStore(url){
 		ref = cordova.InAppBrowser.open(url, '_blank','location=no,zoom=no,disallowoverscroll=yes,clearsessioncache=yes,hidden=yes');
 		let href = document.location.href;	
 		ref.addEventListener('loadstart', function(event) {
-			swal("You are offine!!");
-			return history.go(-1);
+			if(!navigator.onLine){
+				swal("You are offine!!");
+				return history.go(-1);
+			}
 		/* 	if(!navigator.onLine){
                 let div = document.createElement('div');
                 let btn = document.createElement('button');
