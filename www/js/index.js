@@ -46,18 +46,36 @@ var app = {
         // receivedElement.setAttribute('style', 'display:block;');
 
         console.log('Received Event: ' + id);
-        launchStore();
+        launchStore('http://www.onsgrocery.com/');
     }
 };
 
-function launchStore(){
+function launchStore(url){
 	if(navigator.onLine){
-		ref = cordova.InAppBrowser.open('http://www.onsgrocery.com/', '_blank','location=no,zoom=no,disallowoverscroll=yes,clearsessioncache=yes,hidden=yes');
+		ref = cordova.InAppBrowser.open(url, '_blank','location=no,zoom=no,disallowoverscroll=yes,clearsessioncache=yes,hidden=yes');
 		ref.addEventListener('loadstart', function(event) {
+		let href = document.location.href;	
 		  if(!navigator.onLine){
-			  alert('You are offline');
-			  return;
-		  }
+                let div = document.createElement('div');
+                let btn = document.createElement('button');
+                btn.innerHTML ="Retry";
+                btn.addEventListener('click',retry);
+
+                // var img = document.createElement('img');
+                // img.src = "/img/woops.png";
+                div.classList.add('no-internet');
+                div.innerHTML = "<p>You are offline, please check your internet conection and</p>"
+                //div.append(img);
+                div.append(btn)
+                document.body.append(div);
+            }
+            function retry(){
+                    if(navigator.onLine){
+                        let child = document.querySelector('.no-internet');
+                        document.body.removeChild(child);
+                         launchStore(href);
+                      }
+            }
 		});
 		ref.addEventListener('loadstop', function(event) {
 			//iniDiv.style.display = "none";
