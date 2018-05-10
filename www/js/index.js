@@ -34,7 +34,6 @@ var app = {
     // function, we must explicitly call 'app.receivedEvent(...);'
     onDeviceReady: function() {
         app.receivedEvent('deviceready');
-        document.addEventListener("offline", onOffline, false);
 		let ref = null;
     },
     onOffline:function(){
@@ -50,6 +49,7 @@ var app = {
         // receivedElement.setAttribute('style', 'display:block;');
 
         console.log('Received Event: ' + id);
+        document.addEventListener("offline", app.onOffline, false);
         launchStore('http://www.onsgrocery.com/');
     }
 };
