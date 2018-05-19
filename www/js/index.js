@@ -90,7 +90,7 @@ function setupPush() {
     alert('calling push init');
     var push = PushNotification.init({
         "android": {
-            "icon":'http://onsgrocery.com/wp-content/uploads/2018/04/logo-tab.png',
+            "icon":'cart',
             "senderID": "20215523485"
         },
         "browser": {},
