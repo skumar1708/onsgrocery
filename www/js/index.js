@@ -112,7 +112,7 @@ function setupPush() {
             // unsubscribe and resubscribe
             push.unsubscribe("all", function () {
                 alert("unsubscribed to all");
-                push.subscribe("allNew", function successSubscribe () {
+                push.subscribe("onsgrocery-offers", function successSubscribe () {
                     // success ...
                     alert("resubscribed to all");
                 }, function errorSubscribe () {
