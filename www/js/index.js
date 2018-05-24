@@ -101,9 +101,8 @@ function setupPush() {
         },
         "windows": {}
     });
-    alert('after init');
     push.on('registration', function(data) {
-        alert('registration event: ' + data.registrationId);
+        //alert('registration event: ' + data.registrationId);
 
         var oldRegId = localStorage.getItem('registrationId');
         if (oldRegId !== data.registrationId) {
@@ -112,13 +111,13 @@ function setupPush() {
         
             // unsubscribe and resubscribe
             push.unsubscribe("all", function () {
-                alert("unsubscribed to all");
+               // alert("unsubscribed to all");
                 push.subscribe("onsgrocery-offers", function successSubscribe () {
                     // success ...
-                    alert("resubscribed to all");
+                   // alert("resubscribed to all");
                 }, function errorSubscribe () {
                     // error ...
-                    alert("error subscribing to all");
+                    //alert("error subscribing to all");
                 });
             });
         }
@@ -132,16 +131,16 @@ function setupPush() {
     });
 
     push.on('error', function(e) {
-        alert("push error = " + e.message);
+        //alert("push error = " + e.message);
     });
 
     push.on('notification', function(data) {
-        alert('notification event');
-        navigator.notification.alert(
-            data.message,         // message
-            null,                 // callback
-            data.title,           // title
-            'Ok'                  // buttonName
-        );
+        // alert('notification event');
+        // navigator.notification.alert(
+        //     data.message,         // message
+        //     null,                 // callback
+        //     data.title,           // title
+        //     'Ok'                  // buttonName
+        // );
    });
 }
