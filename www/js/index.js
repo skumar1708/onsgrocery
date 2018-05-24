@@ -87,7 +87,7 @@ function launchStore(url){
 }   
 
 function setupPush() {
-    alert('calling push init');
+    //alert('calling push init');
     var push = PushNotification.init({
         "android": {
             "icon":'cart',
