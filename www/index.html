@@ -13,7 +13,7 @@
     <title>ONS Grocery</title>
 </head>
 
-<body class="bg">
+<body id="bg" class="bg">
     <div id="iniDiv" class="app">
         <!-- <h1>PhoneGap</h1>-->
         <div id="deviceready" class="blink">
@@ -26,19 +26,22 @@
     <script type="text/javascript" src="cordova.js"></script>
     <script type="text/javascript" src="js/index.js"></script>
     <script type="text/javascript">
-        if(navigator.onLine){
+        init();
+        function init(){
+            if(navigator.onLine){
                 let loaders = ['img/tomsplit.gif',
-                               'img/pumpspin.gif',
-                               'img/carrotspin.gif',
-                               'img/acornpealift.gif',
-                               'img/cherrycubesmall.gif',
-                               'img/fruitbowlz.gif',
-                               'img/applesmall.gif',
-                               'img/grapesmall.gif'];
+                            'img/pumpspin.gif',
+                            'img/carrotspin.gif',
+                            'img/acornpealift.gif',
+                            'img/cherrycubesmall.gif',
+                            'img/fruitbowlz.gif',
+                            'img/applesmall.gif',
+                            'img/grapesmall.gif'];
                 let randomInt = Math.floor(Math.random() * 8) + 0;
                 loader.src = loaders[randomInt];
                 app.initialize();
             }else{
+                bg.style.display = 'none';
                 let div = document.createElement('div');
                 let btn = document.createElement('button');
                 btn.innerHTML ="Retry";
@@ -47,18 +50,19 @@
                 // var img = document.createElement('img');
                 // img.src = "/img/woops.png";
                 div.classList.add('no-internet');
-                div.innerHTML = "<p>You are offline, please check your internet conection and</p>"
+                div.innerHTML = "<p>You are offline, please check your internet connection</p>"
                 //div.append(img);
                 div.append(btn)
                 document.body.append(div);
             }
-            function retry(){
-                    if(navigator.onLine){
-                        let child = document.querySelector('.no-internet');
-                        document.body.removeChild(child);
-                         app.initialize();
-                      }
-            }
+        }
+        function retry(){
+            if(navigator.onLine){
+                let child = document.querySelector('.no-internet');
+                document.body.removeChild(child);
+                init();
+                }
+        }
     </script>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.9.1/sweetalert2.min.js'></script>
 </body>
