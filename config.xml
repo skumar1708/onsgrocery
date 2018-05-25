@@ -13,8 +13,13 @@
     <preference name="android-targetSdkVersion" value="26" />
     <preference name="SplashScreenDelay" value="1000" />
     <platform name="android">
-        <icon src="www/res/icon/android/logo.png" />
-        <splash density="port-xxxhdpi" src="www/img/logo-mobile.png" />
+        <icon density="ldpi" src="www/res/icon/android/logo.png" />
+        <icon density="mdpi" src="www/res/icon/android/logo.png" />
+        <icon density="hdpi" src="www/res/icon/android/logo.png" />
+        <icon density="xhdpi" src="www/res/icon/android/logo.png" />
+        <icon density="xxhdpi" src="www/res/icon/android/logo.png" />
+        <icon density="xxxhdpi" src="www/res/icon/android/logo.png" />
+        <splash density="port-xxxhdpi" src="www/res/icon/android/logo.png" />
     </platform>
     <access origin="*" />
     <allow-intent href="http://*/*" />
