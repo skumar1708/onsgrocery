@@ -13,14 +13,14 @@
     <title>ONS Grocery</title>
 </head>
 
-<body id="bg" class="bg">
+<body class="bg">
     <div id="iniDiv" class="app">
         <!-- <h1>PhoneGap</h1>-->
         <div id="deviceready" class="blink">
             <!-- <p class="event listening">Connecting to Device</p>
             <p class="event received">Device is Ready</p> -->
             <p>Please wait while we are fetching freshness for you...</p>
-            <img id="loader" class="loader-init" style="width: 70px;"/>
+            <img id="loader" class="loader-init"/>
         </div>
     </div>
     <script type="text/javascript" src="cordova.js"></script>
@@ -29,19 +29,24 @@
         init();
         function init(){
             if(navigator.onLine){
-                let loaders = ['img/tomsplit.gif',
-                            'img/pumpspin.gif',
-                            'img/carrotspin.gif',
-                            'img/acornpealift.gif',
-                            'img/cherrycubesmall.gif',
-                            'img/fruitbowlz.gif',
-                            'img/applesmall.gif',
-                            'img/grapesmall.gif'];
+                let loaders = [
+                                {url:'img/tomsplit.gif',width:'80'},
+                                {url:'img/pumpspin.gif',width:'65'},
+                                {url:'img/carrotspin.gif',width:'200'},
+                                {url:'img/acornpealift.gif',width:'70'},
+                                {url:'img/cherrycubesmall.gif',width:'70'},
+                                {url:'img/fruitbowlz.gif',width:'70'},
+                                {url:'img/applesmall.gif',width:'60'},
+                                {url:'img/grapesmall.gif',width:'60'}
+                             ];
                 let randomInt = Math.floor(Math.random() * 8) + 0;
-                loader.src = loaders[randomInt];
+                loader.width = loaders[randomInt].width;
+                loader.src = loaders[randomInt].url;
+                console.log('loaders[randomInt].width is',loaders[randomInt].width);
+                iniDiv.style.display = 'block';
                 app.initialize();
             }else{
-                bg.style.display = 'none';
+                iniDiv.style.display = 'none';
                 let div = document.createElement('div');
                 let btn = document.createElement('button');
                 btn.innerHTML ="Retry";
