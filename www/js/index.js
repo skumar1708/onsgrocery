@@ -90,7 +90,6 @@ function setupPush() {
     //alert('calling push init');
     var push = PushNotification.init({
         "android": {
-            "icon":'cart',
             "senderID": "20215523485"
         },
         "browser": {},
