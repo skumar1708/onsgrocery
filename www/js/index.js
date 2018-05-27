@@ -31,7 +31,7 @@ var app = {
 };
 
 function launchStore(url){
-		ref = cordova.InAppBrowser.open(url, '_blank','location=yes,zoom=no,disallowoverscroll=yes,clearsessioncache=yes,hidden=yes');
+		ref = cordova.InAppBrowser.open(url, '_system','location=no,zoom=no,disallowoverscroll=yes,clearsessioncache=yes,hidden=yes');
 		let href = document.location.href;	
 		ref.addEventListener('loadstart', function(event) {
 			if(!navigator.onLine){
